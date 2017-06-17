@@ -1,0 +1,40 @@
+
+<div class="container">
+<div class="header">
+  <div class="headerNameStyle"> {{loggedUserData[0].userName}} </div>
+</div>
+<div class="body" id="wrapper">
+  <img class="goBackIcon" src="../assets/image/arrow-left.png" title="Go Back" (click)="navigateBack($event)" />
+<div class="compose-tweet-box" *ngIf="targetValue==1">
+  <h1>write your view</h1><img src="./assets/image/close_round.png" (click)="closeCompose()" >
+  <input type="text" class="compose-tweet" [(ngModel)]="tweetContent"/>
+  <input type="button" (click)="saveTweet()" class="compose-button" value="Submit"/>
+</div> 
+<div>
+  
+     <div class="inner-body2 scrollbar" id="style-1" style="width:120%;">
+        <div class="left">
+               <div class="force-overflow">
+                 <div>
+                        <div> <img class="timeLineImage" [src]=memberObj.imgSrc/></div>
+                        <div class="timeLineUserName">{{memberObj.userName}}</div>
+              </div>
+              
+                <!--<img class="goBackIcon" src="../assets/image/arrow-left.png" title="Go Back" (click)="navigateBack($event)" />-->
+               
+            <div  *ngFor="let member of memberTimeline">
+                <span  *ngIf="memberObj.id==member.id" >
+                  <p style="border-top:#ded3d3 1px solid; " >
+                   {{member.content}}
+                  </p>
+                </span>
+            </div>
+            </div>
+        </div>
+     </div>
+</div>
+</div>
+<div class="footer">  
+
+</div>
+</div>

@@ -1,0 +1,57 @@
+
+<div class="container">
+<div class="header">
+  <div class="headerNameStyle"> {{loggedUserData[0].userName}} </div>
+</div>
+<div class="body">
+<div class="compose-tweet-box" *ngIf="targetValue==1">
+  <h1>Write Your View</h1><img src="./assets/image/close_round.png" (click)="closeCompose()" >
+  <input type="text" class="compose-tweet" [(ngModel)]="tweetContent" maxlength="163"/>
+  <input type="button" (click)="saveTweet()" class="compose-button" value="Tweet"/>
+</div> 
+<div>
+  <!--<div style="width: 20%;">-->
+    <div  class="myProfile" style="width: 20%;">
+              
+              <div style="border-bottom:1px solid #D2D2D2;"> <img class="loggedImage2" [src]=loggedUserData[0].imgSrc /> <span class="loggedUserName"><a (click)="navigateToViewMemberTimline(loggedUserData[0])">{{loggedUserData[0].userName}}</a></span></div>
+               <div>
+              <span class="myProfile-display">{{tweetCount}} Tweet</span>
+              <span class="myProfile-display">{{loggedUserData[0].followers}} Followers</span>
+              </div>    
+              <div class="trends"><h1>Trends</h1>
+                  <span class="trednsStyle">
+                     #INDvBAN <br>
+                     1993Mumbai<br>
+                     #InduSarkarTrailer<br>
+                  </span>
+              </div>  
+    </div>
+            <!--<div class="myTrends" >kfjlkfjlksdjgkgljgkldjgkldj
+              </div>-->
+    <!--</div>-->
+    <div style="width:5%;" class="spacing-div">
+    </div>
+     <div class="inner-body" style="width:60%;">
+           <div class="panel left">
+               <h1>Tweet <div><img class="composeIcon" src="./assets/image/edit-tweet.png" (click)="imageClicked()" title="Compose" ></div></h1>
+             <div class="tweetCount">{{memberDetails.length}} New Tweets</div>
+            <div class="styleTimeline" *ngFor="let member of memberDetails">
+              <div style="display:inline-block; width:10%;">
+                <span> <img class="profileImage2"  [src]=member.imgSrc /></span>
+              
+              </div>
+              
+              <div style="display:inline-block; width:70%; padding-left:10%" >
+
+              <span class="name"><a (click)="navigateToViewMemberTimline(member)" ><b><span style="color:#0093ff;cursor: pointer;">{{member.userName}}</span>  </b>&nbsp;</a> {{member.content}}</span>
+                
+              </div>
+                 </div>
+            </div>
+     </div>
+</div>
+</div>
+<div class="footer">  
+
+</div>
+</div>
